@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+  <title>Amicable Numbers</title>
+</head>
+
+<body>
+    <h2>Amicable Numbers</h2>
+    
+    <form>
+      First Number &nbsp&nbsp&nbsp <input type="number" id="num1" /><br />
+      Second Number <input type= "number" id = "num2" /><br />
+      <input type = "button" id = "btn1" value = "Check if amicable"/>
+    </form>
+    <div id = "numbers">
+      &nbsp;
+    </div>
+    
+    
+    <script language="javascript">
+    
+    function printNumbers()  
+    {
+          var num1 = document.getElementById("num1").value;
+          var num2 = document.getElementById("num2").value;
+          var mydiv = document.getElementById("numbers");
+          var print_numbers = "<br /> Number 1: " + num1 + "<br />";
+          print_numbers += "Number 2: " + num2 + "<br />";
+          mydiv.innerHTML = print_numbers;
+          
+    }
+    
+    function isFactor(number, factor)
+    {
+      var remainder = number % factor;
+      if (remainder == 0) {
+        // alert("true");
+        return true;
+        
+      } else {
+        // alert("false");
+        return false;
+      }
+    }
+    
+    // isFactor(10,5);
+    // isFactor(10,6);
+    
+    function showArray(arr) 
+    {
+      var mydiv = document.getElementById("numbers");
+      mydiv.innerHTML += "<br />" + arr + "<br />";
+    }
+    // test_array = [1,2,3,4,5];
+    // test_array1 = [];
+    // showArray(test_array);
+    
+    function addArray(arr) 
+    {
+      var total = 0;
+      var length = arr.length;
+      for (i = 0; i < length; i++) {
+        total += arr[i];
+      }
+      // alert(total);
+      return total;
+    }
+    // test_array = [1,2,3,4,5];
+    // test_array2 = [];
+    // test_array3 = [11];
+    // addArray(test_array3);
+    
+    function getFactors(number)
+    {
+      var arr = [];
+      for (i = 1; i < number; i++) {
+        if (isFactor(number,i)) {
+          arr.push(i);
+        }
+      }
+      // alert(arr);
+      return arr;
+    }
+    // getFactors(3);
+    // getFactors(10);
+    // getFactors(12);
+    // getFactors(7);
+    
+    function checkAmicable() 
+    {
+      var number1 = document.getElementById("num1").value;
+      var number2 = document.getElementById("num2").value;
+      var mydiv = document.getElementById("numbers");
+      var factors1 = getFactors(number1);
+      var factors2 = getFactors(number2);
+      var sum_factors1 = addArray(factors1);
+      var sum_factors2 = addArray(factors2);
+      if ((sum_factors1 == number2) && (sum_factors2 == number1)) {
+        var str = "<br /> Numbers " + number1 + " and ";
+        str += number2 + " are amicable! <br /> <br />";
+        mydiv.innerHTML += str;
+        mydiv.innerHTML += "Factors of " + number1 + ": ";
+        showArray(factors1);
+        mydiv.innerHTML += "Sum of factors is " + sum_factors1 + "<br /> <br />";
+        mydiv.innerHTML += "Factors of " + number2 + ": ";
+        showArray(factors2);
+        mydiv.innerHTML += "Sum of factors is " + sum_factors2;
+        
+      } else {
+        var str = "<br /> Numbers " + number1 + " and ";
+        str += number2 + " are not amicable. <br /> <br />";
+        mydiv.innerHTML += str;
+      }
+    }
+
+    
+    window.onload = function() {
+      b1 = document.getElementById("btn1");
+      b1.onclick = function() {
+        printNumbers();
+        checkAmicable();
+      }
+    }
+    
+    
+    </script>
+    
+</body>
