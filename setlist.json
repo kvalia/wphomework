@@ -1,0 +1,63 @@
+[
+{
+  "title": "No Heart",
+  "artist": "21 Savage",
+  "genre": ["Hip-Hop"],
+  "year": 2016
+},
+
+{
+  "title": "Dance Monkey",
+  "artist": "Tones and I",
+  "genre": ["Alternative", "Indie"],
+  "year": 2019
+},
+{
+  "title": "Mood Swings",
+  "artist": "Pop Smoke",
+  "genre": ["Hip-Hop"],
+  "year": 2020
+},
+{
+  "title": "Replay",
+  "artist": "Iyaz",
+  "genre": ["Pop"],
+  "year": 2009
+},
+{
+  "title": "Popstar",
+  "artist": "Drake",
+  "genre": ["Hip-Hop"],
+  "year": 2020
+},
+{
+  "title": "Hearless",
+  "artist": "Kanye West",
+  "genre": ["R&B Trap", "Hip-Hop"],
+  "year": 2020
+},
+{
+  "title": "Blinding Lights",
+  "artist": "The Weeknd",
+  "genre": ["R&B Trap"],
+  "year": 2019
+},
+{
+  "title": "Fireflies",
+  "artist": "Owl City",
+  "genre": ["Pop"],
+  "year": 2009
+},
+{
+  "title": "DJ Got us Fallin' In Love",
+  "artist": "Usher",
+  "genre": ["Pop"],
+  "year": 2010
+},
+{
+  "title": "Just a Dream",
+  "artist": "Nelly",
+  "genre": ["Hip-Hop", "R&B Trap"],
+  "year": 2010
+}
+]
