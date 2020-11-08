@@ -1,0 +1,27 @@
+table {
+  display: table;
+  width: 100%;
+  
+  border-color: black;
+  font-family: "Arial";
+  border-collapse: collapse;
+  /* border-color: black; */
+  border: 1px solid black;
+  color: black;
+}
+
+th, td {
+  border-color: black;
+  border-bottom: 1px solid #808080;
+  font-size: 18px;
+  padding: 10px 20px;
+  background-color: #282828;
+  color: white;
+}
+
+tr:hover {
+  border: 1px solid white; 
+  /* color: ;  */
+  background-color: white;
+}
+
