@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+	<title>NBA API</title>
+	<meta charset="utf-8"/>
+	<script>
+		function getInfo() {
+			/* Step 1: Make instance of request object...
+			...to make HTTP request after page is loaded*/
+		request = new XMLHttpRequest();
+		request.withCredentials = true;
+		console.log("1 - request object created");
+ 
+			// Step 2: Set the URL for the AJAX request to be the JSON file
+ 
+		request.open("GET", "https://free-nba.p.rapidapi.com/teams/14");
+		request.setRequestHeader("x-rapidapi-key", "a32f13a3e3msh0f75cd9634f8740p1c20c7jsn3da6cb8226f5");
+		request.setRequestHeader("x-rapidapi-host", "free-nba.p.rapidapi.com");
+
+
+		// request.send(data);
+
+			console.log("2 - opened request file");
+ 
+			// Step 3: set up event handler/callback
+
+			request.onreadystatechange = function() {
+
+ 
+				if (request.readyState == 4 && request.status == 200) {
+
+					// Step 5: wait for done + success
+					console.log("5 - response received");
+					result = request.responseText;
+					// alert(result);
+					info = JSON.parse(result);
+					
+					document.getElementById("data").innerHTML ="Team name: " + info["full_name"]; 
+					document.getElementById("data").innerHTML +="<br />Conference: " + info["conference"]; 
+					
+					
+				}
+				else if (request.readyState == 4 && request.status != 200) {
+
+					document.getElementById("data").innerHTML = "Something is wrong!  Check the logs to see where this went off the rails";
+
+				}
+
+				else if (request.readyState == 3) {
+
+					document.getElementById("data").innerHTML = "Too soon!  Try again";
+
+				}
+
+			}
+		// Step 4: fire off the HTTP request
+			request.send();
+			console.log("4 - Request sent");
+		}
+	</script>
+</head>
+
+
+<body onload="getInfo()">
+
+	<h1>NBA API</h1>
+	<div id="data">Loading...</div>
+	<div id="content">
+		<p>
+			The API I selected gets a team by ID and prints the name of the team 
+			and what conference the team is in. <br /> <br />
+			I found the API on https://rapidapi.com/theapiguy/api/free-nba <br /> <br />
+			The option I used was get a specific NBA team by ID. I used the specific ID (14)
+			for the Los Angeles Lakers. <br />This returns a  JSON object with data about the Lakers.
+			I accessed the keys for the team name and the conference. 
+			<br /><br /> This API is helpful for finding information about specific NBA teams. Someone 
+			can access information about any team given a certain team ID. <br />
+			Another application is using the get all teams option to get a JSON list of 
+			all the teams. <br />This is helpful for displaying information of all current NBA teams.
+		</p>
+	</div>
+</body>
+</html>
